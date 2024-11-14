@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .calculator {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+  }
+  
+  .calculator-display {
+    margin-bottom: 20px;
+  }
+  
+  #calc-display {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.5rem;
+    text-align: right;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  button {
+    padding: 20px;
+    font-size: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  button:active {
+    background-color: #ddd;
+  }
+  
+  .clear {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .clear-history {
+    background-color: #ff9800;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .history {
+    margin-top: 20px;
+    width: 300px;
+  }
+  
+  .history h2 {
+    margin-bottom: 10px;
+  }
+  
+  #history-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .history li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .history li button {
+    background-color: transparent;
+    color: #f44336;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Adding styles for the parentheses buttons */
+button {
+    padding: 20px;
+    font-size: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  button:active {
+    background-color: #ddd;
+  }
+  
+  /* The clear history and AC buttons get unique colors */
+  .clear {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .clear-history {
+    background-color: #ff9800;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  
