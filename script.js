@@ -1,67 +1,88 @@
-// Get references to HTML elements
-const display = document.getElementById('calc-display');
-const historyList = document.getElementById('history-list');
+// Select display and history elements
+const display = document.getElementById("display");
+const historyList = document.getElementById("history-list");
 
-// Initialize history from localStorage
-let history = JSON.parse(localStorage.getItem('history')) || [];
+// Load history from localStorage
+let history = JSON.parse(localStorage.getItem("calcHistory")) || [];
+renderHistory();
 
-// Function to append a value to the display
-function appendToDisplay(value) {
+// Function to update the input field
+function input(value) {
   display.value += value;
 }
 
-// Function to clear the display
-function clearDisplay() {
-  display.value = '';
-}
-
-// Function to calculate the expression
+// Function to calculate the result
 function calculate() {
   try {
-    // Evaluate the expression
     const result = eval(display.value);
-    
-    if (result !== undefined) {
-      // Save the calculation with its result in the history
-      saveToHistory(display.value + ' = ' + result);
-      display.value = result;  // Show the result on the display
+
+    if (!isNaN(result)) {
+      let formattedResult = result;
+
+      // Convert large numbers to scientific notation
+      if (result.toString().length > 15) {
+        formattedResult = result.toExponential(5); // Show 5 decimal places in scientific notation
+      }
+
+      const entry = `${display.value} = ${formattedResult}`;
+      history.push(entry);
+      localStorage.setItem("calcHistory", JSON.stringify(history));
+      renderHistory();
+      display.value = formattedResult;
     }
-  } catch (error) {
-    // If there's an error (e.g., syntax error), display "Error"
-    display.value = 'Error';
+  } catch {
+    display.value = "Error";
   }
 }
 
-// Function to save the calculation to history
-function saveToHistory(calculation) {
-  history.push(calculation);
-  localStorage.setItem('history', JSON.stringify(history));
-  renderHistory();
+
+// Clear the display field
+function clearDisplay() {
+  display.value = "";
 }
 
-// Function to render history on the page
+// Delete the last character in the input
+function backspace() {
+  display.value = display.value.slice(0, -1);
+}
+
+// Render the history list
 function renderHistory() {
-  historyList.innerHTML = '';  // Clear the current list of history items
-  history.forEach((item, index) => {
-    const historyItem = document.createElement('li');
-    historyItem.innerHTML = `${item} <button onclick="deleteHistoryItem(${index})">Delete</button>`;
-    historyList.appendChild(historyItem);
+  historyList.innerHTML = "";
+  history.forEach((entry, index) => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <span>${entry}</span>
+      <button onclick="deleteHistory(${index})">X</button>
+    `;
+    historyList.appendChild(li);
   });
 }
 
-// Function to delete a specific history item
-function deleteHistoryItem(index) {
-  history.splice(index, 1);  // Remove the history entry at the specified index
-  localStorage.setItem('history', JSON.stringify(history));  // Update localStorage
-  renderHistory();  // Re-render the history list
-}
-
-// Function to clear all history
+// Clear the history
 function clearHistory() {
   history = [];
-  localStorage.removeItem('history');
+  localStorage.removeItem("calcHistory");
   renderHistory();
 }
 
-// Render the history on initial load
-renderHistory();
+// Delete an individual history entry
+function deleteHistory(index) {
+  history.splice(index, 1);
+  localStorage.setItem("calcHistory", JSON.stringify(history));
+  renderHistory();
+}
+
+// Allow keyboard input for the calculator
+document.addEventListener("keydown", (event) => {
+  const allowedKeys = "0123456789+-*/().";
+  if (allowedKeys.includes(event.key)) {
+    input(event.key);
+  } else if (event.key === "Enter") {
+    calculate();
+  } else if (event.key === "Backspace") {
+    backspace();
+  } else if (event.key === "Escape") {
+    clearDisplay();
+  }
+});

@@ -3,47 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator with History</title>
+  <title>Calculator</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="calculator">
-    <div class="calculator-display">
-      <input type="text" id="calc-display" disabled>
+    <input type="text" id="display" readonly />
+    <div class="buttons">
+      <!-- Number Buttons -->
+      <button onclick="input('7')">7</button>
+      <button onclick="input('8')">8</button>
+      <button onclick="input('9')">9</button>
+      <button onclick="input('/')">/</button>
+      <button onclick="input('4')">4</button>
+      <button onclick="input('5')">5</button>
+      <button onclick="input('6')">6</button>
+      <button onclick="input('*')">*</button>
+      <button onclick="input('1')">1</button>
+      <button onclick="input('2')">2</button>
+      <button onclick="input('3')">3</button>
+      <button onclick="input('-')">-</button>
+      <button onclick="input('0')">0</button>
+      <button onclick="clearDisplay()">AC</button>
+      <button onclick="backspace()">⌫</button>
+      <button onclick="input('+')">+</button>
+      <button onclick="input('(')">(</button>
+      <button onclick="input(')')">)</button>
+      <button onclick="calculate()">=</button>
     </div>
-    <div class="calculator-buttons">
-      <button class="btn" onclick="appendToDisplay('7')">7</button>
-      <button class="btn" onclick="appendToDisplay('8')">8</button>
-      <button class="btn" onclick="appendToDisplay('9')">9</button>
-      <button class="btn" onclick="appendToDisplay('/')">/</button>
-      
-      <button class="btn" onclick="appendToDisplay('4')">4</button>
-      <button class="btn" onclick="appendToDisplay('5')">5</button>
-      <button class="btn" onclick="appendToDisplay('6')">6</button>
-      <button class="btn" onclick="appendToDisplay('*')">*</button>
-      
-      <button class="btn" onclick="appendToDisplay('1')">1</button>
-      <button class="btn" onclick="appendToDisplay('2')">2</button>
-      <button class="btn" onclick="appendToDisplay('3')">3</button>
-      <button class="btn" onclick="appendToDisplay('-')">-</button>
-      
-      <button class="btn" onclick="appendToDisplay('0')">0</button>
-      <button class="btn" onclick="appendToDisplay('.')">.</button>
-      <button class="btn" onclick="calculate()">=</button>
-      <button class="btn" onclick="appendToDisplay('+')">+</button>
-      
-      <button class="btn" onclick="appendToDisplay('(')">(</button>
-      <button class="btn" onclick="appendToDisplay(')')">)</button>
-      <button class="btn clear" onclick="clearDisplay()">AC</button>
+    <div class="history">
+      <h3>History</h3>
+      <button onclick="clearHistory()">Clear History</button>
+      <ul id="history-list"></ul>
     </div>
   </div>
-
-  <div class="history">
-    <h2>History</h2>
-    <ul id="history-list"></ul>
-    <button class="btn clear-history" onclick="clearHistory()">Clear History</button>
-  </div>
-
   <script src="script.js"></script>
 </body>
 </html>
