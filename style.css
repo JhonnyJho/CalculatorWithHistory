@@ -6,6 +6,7 @@ body {
   min-height: 100vh;
   background-color: #f5f5f5;
   margin: 0;
+  background: linear-gradient(to right, #ff8be6, #D3560E);
 }
 
 .calculator {
@@ -15,11 +16,12 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   max-width: 300px;
   width: 100%;
+  background-color: #b2b4e0;
 }
 
 #display {
   width: 100%;
-  padding: 2px;
+  padding: 1px;
   font-size: 1.5em;
   text-align: right;
   margin-bottom: 10px;
@@ -41,7 +43,7 @@ button {
   font-size: 1.2em;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
+  background-color: #5893ff;
   color: white;
   cursor: pointer;
 }

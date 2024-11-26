@@ -21,7 +21,7 @@ function calculate() {
 
       // Convert large numbers to scientific notation
       if (result.toString().length > 15) {
-        formattedResult = result.toExponential(5); // Show 5 decimal places in scientific notation
+        formattedResult = result.toExponential(5); 
       }
 
       const entry = `${display.value} = ${formattedResult}`;
