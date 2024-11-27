@@ -43,7 +43,8 @@ button {
   font-size: 1.2em;
   border: none;
   border-radius: 75px;
-  background-color: #5893ff;
+  background-color: rgba(0, 89, 255, 0.562);
+  backdrop-filter: blur(5px);
   color: white;
   cursor: pointer;
   
