@@ -10,13 +10,13 @@ body {
 }
 
 .calculator {
-  background: #fff;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   max-width: 300px;
   width: 100%;
-  background-color: #b2b4e0;
+  background-color: rgba(255, 255, 255, 0.322);
+  backdrop-filter: blur(5px);
 }
 
 #display {
@@ -26,7 +26,7 @@ body {
   text-align: right;
   margin-bottom: 10px;
   border: 1px solid #ddd;
-  border-radius: 10spx;
+  border-radius: 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -42,10 +42,11 @@ button {
   padding: 15px;
   font-size: 1.2em;
   border: none;
-  border-radius: 5px;
+  border-radius: 75px;
   background-color: #5893ff;
   color: white;
   cursor: pointer;
+  
 }
 
 button:hover {
@@ -70,7 +71,8 @@ button:hover {
   justify-content: space-between;
   margin-bottom: 5px;
   padding: 5px 10px;
-  background: #f1f1f1;
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(5px);
   border-radius: 5px;
   word-wrap: break-word; /* Allow long text to wrap */
 }
